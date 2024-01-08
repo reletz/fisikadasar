@@ -30,7 +30,6 @@ public class GroundGenerator : MonoBehaviour
 
     void SwapTiles()
     {
-        Debug.Log("Swap");
         TileInstances[LastTileInstance].transform.position += Vector3.right * Step * TileInstances.Length;
 
         LastTileInstance = (LastTileInstance + 1) % TileInstances.Length;
