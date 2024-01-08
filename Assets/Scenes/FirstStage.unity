@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d948ab8a3180d4e978c5bbf0ecc764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 7.5
   CurrentLane: 1
   Lanes:
   - {fileID: 9487948}
