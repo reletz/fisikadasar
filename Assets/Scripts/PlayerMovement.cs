@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D)), RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    public Image RunFill;
     public float JumpForce;
     public float Acceleration;
     public float MaxSpeed;
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     
     [Range(1,3)] public float fadeSpeed;
     private float[] LanePositions;
+    private float runProgress=0f;
     private BoxCollider2D PlayerCollider;
     private Rigidbody2D PlayerRb;
     private short LastInput;
@@ -42,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Adds progress to the Race Bar
+        runProgress+=Time.deltaTime*PlayerRb.velocity.x;
+        RunFill.fillAmount=runProgress/1200;
+        //adds progress to score bar (via triggering the other script's fuction)
+        ScoreManager.instance.AddPoint(runProgress);
+
         // temporary ground checking
         if (PlayerRb.velocity.y == 0)
         {
@@ -73,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         // Jump when player can jump
         if (Input.GetKey(KeyCode.Space) && CanJump)
         {
+            AudioManager.Instance.PlaySFX("Jump");
             PlayerRb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
 

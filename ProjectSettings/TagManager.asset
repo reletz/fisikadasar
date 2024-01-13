@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Roga
   - Obstacle
+  - Music
   layers:
   - Default
   - TransparentFX

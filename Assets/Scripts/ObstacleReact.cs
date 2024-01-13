@@ -9,6 +9,8 @@ public class ObstacleReact : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            //plays hit sfx
+            AudioManager.Instance.PlaySFX("Hit");
             //changes obstacle sprite & layer so it's untouchable
             this.gameObject.GetComponent<Animator>().SetBool("isBroken", true);
             this.gameObject.layer=9;
