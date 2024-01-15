@@ -11,3 +11,4 @@ public class Retry : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
+
