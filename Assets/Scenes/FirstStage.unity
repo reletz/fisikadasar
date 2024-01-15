@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 165952950}
   - component: {fileID: 165952951}
   - component: {fileID: 165952952}
+  - component: {fileID: 165952953}
   m_Layer: 13
   m_Name: Roga
   m_TagString: Roga
@@ -492,13 +493,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 7.5
+  CatchupSpeed: 15
   CurrentLane: 1
   Lanes:
   - {fileID: 9487948}
   - {fileID: 182169735}
   - {fileID: 1960332554}
-  Target: {fileID: 529772605}
+  Player: {fileID: 529772600}
   StartCountdown: 2
+  MaxDistance: 15
+  Started: 0
 --- !u!212 &165952949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -540,7 +544,7 @@ SpriteRenderer:
   m_SortingLayerID: -1380490437
   m_SortingLayer: 3
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 29a557469cbe4f444b86fef783fcaab9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c65e910f2ce75ea42aac7eab3b59b44d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -589,7 +593,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.1335404}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -612,6 +616,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 521704450}
   isGameOver: 0
+--- !u!95 &165952953
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165952946}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9c56d302f6fc244ba280808c32e2038, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &182169735
 GameObject:
   m_ObjectHideFlags: 0
