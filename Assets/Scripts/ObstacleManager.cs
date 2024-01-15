@@ -51,7 +51,37 @@ public class ObstacleManager : MonoBehaviour
     void SpawnObstacle(int lane, int index)
     {
         GameObject NewObstacle = Instantiate(Obstacles[index], gameObject.transform, true);
-        NewObstacle.transform.position = new Vector3(CurrentStep + Step, Lanes[lane].transform.position.y + 0.5f * NewObstacle.transform.localScale.y);
-        NewObstacle.layer = Lanes[lane].layer;
+        NewObstacle.transform.position = new Vector3(CurrentStep + Step, Lanes[lane].transform.position.y);
+        //Changing the Layer and Speed (Including the child)
+        SetLayerRecursively(NewObstacle, Lanes[lane].layer, index);
+        static void SetLayerRecursively(GameObject go, int layerNumber, int index)
+        {
+            foreach (Transform trans in go.GetComponentsInChildren<Transform>(true))
+            {
+                //Layer
+                trans.gameObject.layer = layerNumber;
+                if(layerNumber == 8) //Bottom Lane
+                {
+                    trans.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "BottomLane";
+                }
+                if(layerNumber == 7) //Middle Lane
+                {
+                    trans.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "MiddleLane";
+                }
+                if(layerNumber == 6) //Top Lane
+                {
+                    trans.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "TopLane";
+                }
+                //Speed (The rest are still objects, ex. fence)
+                if(index==0) //Car
+                {
+                    trans.gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(trans.gameObject.GetComponent<Rigidbody2D>().velocity.x-4f, trans.gameObject.GetComponent<Rigidbody2D>().velocity.y);
+                }
+                if(index==1) //Person1
+                {
+                    trans.gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(trans.gameObject.GetComponent<Rigidbody2D>().velocity.x-2f, trans.gameObject.GetComponent<Rigidbody2D>().velocity.y);
+                }        
+            }
+        }
     }
 }

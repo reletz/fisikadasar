@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float FixedHeight;
     public float XOffset;
 
-    void Update()
+    void FixedUpdate()
     {
         gameObject.transform.position = new Vector3(Player.transform.position.x + XOffset, FixedHeight, gameObject.transform.position.z);
     }

@@ -60,7 +60,6 @@ public class RogaMovement : MonoBehaviour
     void SwitchLane(int TargetLane)
     {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, LanePositions[TargetLane] - LanePositions[CurrentLane] + gameObject.transform.position.y, gameObject.transform.position.z);
-        gameObject.layer = Lanes[TargetLane].layer;
         CurrentLane = TargetLane;
     }
 }
