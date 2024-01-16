@@ -63,7 +63,13 @@ public class RogaMovement : MonoBehaviour
             SwitchLane(Target.CurrentLane);
         }
 
-        if ((Player.transform.position - gameObject.transform.position).magnitude > MaxDistance)
+        if (gameObject.transform.position.x > Player.transform.position.x)
+        {
+            RogaRb.velocity = Vector2.zero;
+            return;
+        }
+
+        if (Player.transform.position.x - gameObject.transform.position.x > MaxDistance)
         {
             RogaRb.velocity = Vector2.right * CatchupSpeed;
         }
