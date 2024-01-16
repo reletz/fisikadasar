@@ -23,7 +23,7 @@ public class GroundGenerator : MonoBehaviour
     {
         if (Target.transform.position.x - LastPosition >= Step)
         {
-            LastPosition = Target.transform.position.x;
+            LastPosition += Step;
             SwapTiles();
         }
     }
