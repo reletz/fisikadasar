@@ -8,24 +8,29 @@ using UnityEngine;
 public class RogaMovement : MonoBehaviour
 {
     public float Speed;
+    public float CatchupSpeed;
     public int CurrentLane;
     public GameObject[] Lanes;
-    public PlayerMovement Target;
+    public GameObject Player;
     public float StartCountdown;
+    public float MaxDistance;
+    public bool Started;
 
     private float[] LanePositions;
     private BoxCollider2D RogaCollider;
     private Rigidbody2D RogaRb;
+    private PlayerMovement Target;
 
     public void StartChase()
     {
-        RogaRb.velocity = Vector2.right * Speed;
+        Started = true;
     }
 
     void Awake()
     {
         RogaCollider = gameObject.GetComponent<BoxCollider2D>();
         RogaRb = gameObject.GetComponent<Rigidbody2D>();
+        Target = Player.GetComponent<PlayerMovement>();
 
         Array.Resize(ref LanePositions, Lanes.Length);
 
@@ -51,9 +56,26 @@ public class RogaMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!Started) return;
+
         if (CurrentLane != Target.CurrentLane)
         {
             SwitchLane(Target.CurrentLane);
+        }
+
+        if (gameObject.transform.position.x > Player.transform.position.x)
+        {
+            RogaRb.velocity = Vector2.zero;
+            return;
+        }
+
+        if (Player.transform.position.x - gameObject.transform.position.x > MaxDistance)
+        {
+            RogaRb.velocity = Vector2.right * CatchupSpeed;
+        }
+        else
+        {
+            RogaRb.velocity = Vector2.right * Speed;
         }
     }
 
