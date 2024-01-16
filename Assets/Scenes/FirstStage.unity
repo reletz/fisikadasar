@@ -1915,7 +1915,10 @@ MonoBehaviour:
   - {fileID: 9487948}
   - {fileID: 182169735}
   - {fileID: 1960332554}
+  InitialStep: 20
   Step: 20
+  SpawnDistance: 20
+  DifficultyIncrease: 0.05
   SpawnChance: 0.6
   Target: {fileID: 519420028}
 --- !u!1 &617136456

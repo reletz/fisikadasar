@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,7 +8,10 @@ public class ObstacleManager : MonoBehaviour
 {
     public GameObject[] Obstacles;
     public GameObject[] Lanes;
+    public float InitialStep;
     public float Step;
+    public float SpawnDistance;
+    public float DifficultyIncrease;
     [Range(0, 1)] public float SpawnChance;
     public GameObject Target;
 
@@ -16,6 +20,7 @@ public class ObstacleManager : MonoBehaviour
     void Start()
     {
         CurrentStep = Target.transform.position.x;
+        Step = InitialStep;
 
         GenerateNextStep();
     }
@@ -25,7 +30,7 @@ public class ObstacleManager : MonoBehaviour
         if (Target.transform.position.x - CurrentStep >= Step)
         {
             CurrentStep = Target.transform.position.x;
-
+            IncreaseDifficulty();
             GenerateNextStep();
         }
     }
@@ -51,7 +56,7 @@ public class ObstacleManager : MonoBehaviour
     void SpawnObstacle(int lane, int index)
     {
         GameObject NewObstacle = Instantiate(Obstacles[index], gameObject.transform, true);
-        NewObstacle.transform.position = new Vector3(CurrentStep + Step, Lanes[lane].transform.position.y);
+        NewObstacle.transform.position = new Vector3(CurrentStep + SpawnDistance, Lanes[lane].transform.position.y);
         //Changing the Layer and Speed (Including the child)
         SetLayerRecursively(NewObstacle, Lanes[lane].layer, index);
         static void SetLayerRecursively(GameObject go, int layerNumber, int index)
@@ -83,5 +88,13 @@ public class ObstacleManager : MonoBehaviour
                 }        
             }
         }
+    }
+
+    void IncreaseDifficulty()
+    {
+        //Currently the value of step follows the function Step(x) = 2 * InitialStep/Difficulty + 4
+        float Difficulty = 2 * InitialStep / (Step - 4) + DifficultyIncrease;
+        Step = 2 * InitialStep / Difficulty + 4;
+        Debug.Log(Difficulty);
     }
 }
