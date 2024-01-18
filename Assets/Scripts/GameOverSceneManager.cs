@@ -66,6 +66,8 @@ public class GameOverSceneManager : MonoBehaviour
             PredikatImage.color = new Color(1, 1, 1, 0);
 
             Timer = 0;
+
+            AudioManager.Instance.PlaySFX("GameOver2");
         }
 
         float Mult = 1/PredikatTransitionTime * Time.deltaTime;
