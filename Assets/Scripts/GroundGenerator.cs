@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GroundGenerator : MonoBehaviour
 {
+    public static GroundGenerator Instance;
     public GameObject GroundTile;
     public float GroundHeight;
     public float Step;
@@ -14,6 +15,10 @@ public class GroundGenerator : MonoBehaviour
     private int LastTileInstance;
     private float LastPosition;
 
+    void Awake()
+    {
+        Instance=this;
+    }
     void Start()
     {
         LastPosition = Target.transform.position.x;
