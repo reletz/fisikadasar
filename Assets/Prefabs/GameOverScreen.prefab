@@ -69,7 +69,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 412fddb373ea4c34f956d7c4ca343cbe, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -402,7 +402,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 3ecf7d4362b68bc4e8977279338e8d3e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -637,7 +637,7 @@ MonoBehaviour:
   DialogueObject: {fileID: 6836306589286621280}
   PredikatObject: {fileID: 8782469882928883025}
   MenuObject: {fileID: 8782469882452073061}
-  PredikatTransitionTime: 0.75
+  PredikatTransitionTime: 2
   MenuTransitionTime: 0
 --- !u!1001 &8782469883353377787
 PrefabInstance:
