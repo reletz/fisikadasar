@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Roga
+  - Obstacle
+  - Music
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - TopLane
+  - MiddleLane
+  - BottomLane
+  - Permeable
+  - TopLane_Perm
+  - MiddleLane_Perm
+  - BottomLane_Perm
+  - Roga
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: TopLane
+    uniqueID: 1380064037
+    locked: 0
+  - name: MiddleLane
+    uniqueID: 2029360157
+    locked: 0
+  - name: BottomLane
+    uniqueID: 2914476859
+    locked: 0
