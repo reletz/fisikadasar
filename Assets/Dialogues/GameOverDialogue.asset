@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37deab09af48c994283f388686defb4c, type: 3}
-  m_Name: TestDialogue
+  m_Name: GameOverDialogue
   m_EditorClassIdentifier: 
   Lines:
   - HasName: 1
-    Name: ROGA
-    Text: Test
+    Name: Roga
+    Text: Ketangkap kau!
   - HasName: 1
-    Name: Player
-    Text: Test2
-  - HasName: 0
-    Name: Player
-    Text: TestNoName
+    Name: You
+    Text: Nooooooooooo!
+  - HasName: 1
+    Name: Roga
+    Text: Karena kamu ketahuan menyontek nilai kamu menjadi indeks E. Makanya, jangan
+      nyontek yaa!
