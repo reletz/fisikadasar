@@ -22,6 +22,7 @@ public class GameOverHandler : MonoBehaviour
 
         PlayerMovementInstance.Moveable = false;
         Player.layer += 4;
+        Player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
         GameOverScreen.SetActive(true);
         ScreenManager.Initialize();
