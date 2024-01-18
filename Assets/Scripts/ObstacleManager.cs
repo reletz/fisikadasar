@@ -78,7 +78,7 @@ public class ObstacleManager : MonoBehaviour
                     trans.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "TopLane";
                 }
                 //Speed (The rest are still objects, ex. fence)
-                if(index==0) //Car
+                if(index==2) //Car
                 {
                     trans.gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(trans.gameObject.GetComponent<Rigidbody2D>().velocity.x-4f, trans.gameObject.GetComponent<Rigidbody2D>().velocity.y);
                 }

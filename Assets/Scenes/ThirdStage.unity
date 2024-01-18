@@ -1708,9 +1708,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obstacles:
-  - {fileID: 9015035247060622, guid: 6b07ddbb4539d524a96e3f9052d2e027, type: 3}
-  - {fileID: 5572763289329270853, guid: 1ef32bdf2b9f0f44385a49b2e31a0141, type: 3}
   - {fileID: 7532702296874624645, guid: fe1d5427a40689344962753dbc515d81, type: 3}
+  - {fileID: 5572763289329270853, guid: 1ef32bdf2b9f0f44385a49b2e31a0141, type: 3}
+  - {fileID: 9015035247060622, guid: 6b07ddbb4539d524a96e3f9052d2e027, type: 3}
   Lanes:
   - {fileID: 9487948}
   - {fileID: 182169735}
@@ -1718,7 +1718,7 @@ MonoBehaviour:
   InitialStep: 20
   Step: 20
   SpawnDistance: 10
-  DifficultyIncrease: 0
+  DifficultyIncrease: 0.115
   SpawnChance: 0.6
   Target: {fileID: 519420028}
 --- !u!1 &617136456
