@@ -117,17 +117,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //delete this later
-        if(Input.GetKeyDown(KeyCode.Y))
-        {
-            gameObject.layer += 4;
-        }
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            gameObject.layer -= 4;
-        }
-        //
-
         if (Input.GetKeyDown(KeyCode.W) && Moveable)
         {
             LastInput = -1;

@@ -20,16 +20,6 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    // Delete this later
-    if(Input.GetKeyDown(KeyCode.R))
-    {
-        Time.timeScale+=1;
-    }
-    if(Input.GetKeyDown(KeyCode.U))
-    {
-        Time.timeScale=1;
-    }
-    //
 
     //Esc key to pause
     if (Input.GetKeyDown(KeyCode.Escape) && !isOnOptions)
