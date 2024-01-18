@@ -2663,8 +2663,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 445bdcfd378e2e94c98848527efc4cc7, type: 2}
-  m_sharedMaterial: {fileID: 2503496905100617059, guid: 445bdcfd378e2e94c98848527efc4cc7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: BGM
-    clip: {fileID: 8300000, guid: 864c602bae202b646955be674ed67c94, type: 3}
+    clip: {fileID: 8300000, guid: 57ae635c3eff0d149a27084aff74cc74, type: 3}
   sfxSounds:
   - name: Jump
     clip: {fileID: 8300000, guid: e40d6b241b2187f4b80ce9d3353fe227, type: 3}
@@ -3059,6 +3059,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fae23710046082248b4b213a00e23ea8, type: 3}
   - name: Finish
     clip: {fileID: 8300000, guid: 97aff1a0b1cc1664897809445e50b5ee, type: 3}
+  - name: Move
+    clip: {fileID: 8300000, guid: 0a58bcccdb1129640863f86362650ba0, type: 3}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: fa8effedfa0f6344bb551cb4bd992594, type: 3}
+  - name: PA1
+    clip: {fileID: 8300000, guid: 71ae87f0c01b90d4f94611c46d0de7e2, type: 3}
+  - name: PA2
+    clip: {fileID: 8300000, guid: 299f405bcb4685d49ae1fa3ca0f4bbe6, type: 3}
   musicSource: {fileID: 1518788229}
   sfxSource: {fileID: 1769451803}
 --- !u!4 &1256820877
@@ -3219,8 +3227,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'HIGHSCORE:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 445bdcfd378e2e94c98848527efc4cc7, type: 2}
-  m_sharedMaterial: {fileID: 2503496905100617059, guid: 445bdcfd378e2e94c98848527efc4cc7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

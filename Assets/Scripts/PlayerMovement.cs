@@ -131,11 +131,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && Moveable)
         {
             LastInput = -1;
+            AudioManager.Instance.PlaySFX("Move");
         }
 
         if (Input.GetKeyDown(KeyCode.S) && Moveable)
         {
             LastInput = 1;
+            AudioManager.Instance.PlaySFX("Move");
         }
 
         if(Invicible)

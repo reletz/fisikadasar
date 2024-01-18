@@ -11,6 +11,7 @@ public class CatchPlayer : MonoBehaviour
     {
         if (Other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX("GameOver");
             GameOver();
         }
     }

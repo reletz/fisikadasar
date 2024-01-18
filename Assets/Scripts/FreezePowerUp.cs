@@ -53,6 +53,7 @@ public class FreezePowerUp : MonoBehaviour
         if (!Other.gameObject.CompareTag("Player") || Triggered) return;
 
         Triggered = true;
+        AudioManager.Instance.PlaySFX("PA2");
         HideSprite();
         FreezeRoga();
     }

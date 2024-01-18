@@ -51,6 +51,7 @@ public class CoffeePowerUp : MonoBehaviour
         if (!Other.gameObject.CompareTag("Player") || Triggered) return;
 
         Triggered = true;
+        AudioManager.Instance.PlaySFX("PA1");
         HideSprite();
         StartBoost();
     }
