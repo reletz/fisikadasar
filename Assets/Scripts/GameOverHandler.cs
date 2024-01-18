@@ -18,6 +18,7 @@ public class GameOverHandler : MonoBehaviour
     public void GameOver()
     {
         AudioManager.Instance.StopMusic("BGM");
+        AudioManager.Instance.PlaySFX("GameOver");
 
         PlayerMovementInstance.Moveable = false;
         Player.layer += 4;

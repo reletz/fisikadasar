@@ -2760,6 +2760,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fae23710046082248b4b213a00e23ea8, type: 3}
   - name: Finish
     clip: {fileID: 8300000, guid: 97aff1a0b1cc1664897809445e50b5ee, type: 3}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 48e2c56fdb9305f48bdd35a387e0053c, type: 3}
+  - name: GameOver2
+    clip: {fileID: 8300000, guid: eb5275028954e11429528f3ced46e628, type: 3}
   musicSource: {fileID: 1518788229}
   sfxSource: {fileID: 1769451803}
 --- !u!4 &1256820877
