@@ -23,8 +23,6 @@ public class GameOverSceneManager : MonoBehaviour
     {
         DialogueManagerInstance = DialogueObject.GetComponent<DialogueManager>();
         PredikatImage = PredikatObject.GetComponent<Image>();
-
-        Initialize();
     }
 
     void Update()
