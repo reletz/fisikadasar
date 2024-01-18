@@ -21,5 +21,22 @@ public class PlayerAnimationManager : MonoBehaviour
     void Update()
     {
         PlayerAnimator.SetFloat(ParameterName, PlayerRb.velocity.x / StandardSpeed);
+        if(PlayerRb.velocity.y>0)
+        {
+            PlayerAnimator.SetBool("isJumping", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("isJumping",false);
+        }
+
+        if(PlayerRb.velocity.y<0)
+        {
+            PlayerAnimator.SetBool("isFalling", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("isFalling", false);
+        }
     }
 }

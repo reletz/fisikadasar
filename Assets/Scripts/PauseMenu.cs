@@ -5,15 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu Instance;
     public GameObject PausePanel;
     public GameObject OptionsPanel;
    
 
     bool isPaused = false;
     private bool isOnOptions=false;
+
+    void Awake()
+    {
+        Instance=this;
+    }
     // Update is called once per frame
     void Update()
     {
+    // Delete this later
+    if(Input.GetKeyDown(KeyCode.R))
+    {
+        Time.timeScale+=1;
+    }
+    if(Input.GetKeyDown(KeyCode.U))
+    {
+        Time.timeScale=1;
+    }
+    //
+
     //Esc key to pause
     if (Input.GetKeyDown(KeyCode.Escape) && !isOnOptions)
     {
@@ -24,7 +41,7 @@ public class PauseMenu : MonoBehaviour
         else
         {
             // Prevents pausing when GameOver
-            if (!GameObject.Find("Roga").GetComponent<CatchPlayer>().isGameOver)
+            if (!GameObject.Find("Roga").GetComponent<CatchPlayer>().unPausable)
             {
                 isPaused=true;
                 Pause();    
@@ -47,6 +64,38 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SceneManager.LoadSceneAsync(0);
+        if(MainMenu.Instance.onStage1)
+        {
+            if(PlayerMovement.Instance.runProgress>PlayerPrefs.GetInt("highscore1: "))
+            {
+                PlayerPrefs.SetInt("highscore1: ", (int) PlayerMovement.Instance.runProgress);
+            }
+            MainMenu.Instance.onStage1=false;
+        }
+        if(MainMenu.Instance.onStage2)
+        {
+            if(PlayerMovement.Instance.runProgress>PlayerPrefs.GetInt("highscore2: "))
+            {
+                PlayerPrefs.SetInt("highscore2: ", (int) PlayerMovement.Instance.runProgress);
+            }
+            MainMenu.Instance.onStage2=false;
+        }
+        if(MainMenu.Instance.onStage3)
+        {
+            if(PlayerMovement.Instance.runProgress>PlayerPrefs.GetInt("highscore3: "))
+            {
+                PlayerPrefs.SetInt("highscore3: ", (int) PlayerMovement.Instance.runProgress);
+            }
+            MainMenu.Instance.onStage3=false;
+        }
+        if(MainMenu.Instance.onEndless)
+        {
+            if(PlayerMovement.Instance.runProgress>PlayerPrefs.GetInt("highscoreEndless: "))
+            {
+                PlayerPrefs.SetInt("Endless", (int) PlayerMovement.Instance.runProgress);
+            }
+            MainMenu.Instance.onEndless=false;
+        }
     }
 
     public void Options()
@@ -63,9 +112,13 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause()
     {
-        AudioManager.Instance.PauseMusic("BGM");
-        PausePanel.SetActive(true);
-        Time.timeScale=0;
+        // Prevents pausing when GameOver
+        if (!GameObject.Find("Roga").GetComponent<CatchPlayer>().unPausable)
+        {
+            AudioManager.Instance.PauseMusic("BGM");
+            PausePanel.SetActive(true);
+            Time.timeScale=0;
+        }
     }
     public void Continue()
     {

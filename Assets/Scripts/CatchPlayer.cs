@@ -5,7 +5,7 @@ using UnityEngine;
 public class CatchPlayer : MonoBehaviour
 {
     public GameObject GameOverScreen;
-    public bool isGameOver=false;
+    public bool unPausable=false;
 
     void OnTriggerEnter2D(Collider2D Other)
     {
@@ -18,6 +18,6 @@ public class CatchPlayer : MonoBehaviour
     void GameOver()
     {
         GameOverScreen.SetActive(true);
-        isGameOver=true;
+        unPausable=true;
     }
 }

@@ -4,24 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 [RequireComponent(typeof(BoxCollider2D)), RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
     public Image RunFill;
     public float JumpForce;
     public float Acceleration;
     public float MaxSpeed;
     public int CurrentLane;
     public GameObject[] Lanes;
+    public GameObject Camera;
     
     [Range(1,3)] public float fadeSpeed;
     private float[] LanePositions;
-    private float runProgress=0f;
+    public float runProgress=0f;
+    public float runProgressE=0f;
     private BoxCollider2D PlayerCollider;
-    private Rigidbody2D PlayerRb;
+    public Rigidbody2D PlayerRb;
     private short LastInput;
-    private bool CanJump;
+    public bool CanJump;
     private bool Invicible=false;
+    public bool Moveable=true;
     private int Index;
     private bool isFull=true;
     private bool TurnOpaque=false;
@@ -30,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        Instance=this;
         PlayerCollider = gameObject.GetComponent<BoxCollider2D>();
         PlayerRb = gameObject.GetComponent<Rigidbody2D>();
 
@@ -45,11 +51,25 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Adds progress to the Race Bar
-        runProgress+=Time.deltaTime*PlayerRb.velocity.x;
-        RunFill.fillAmount=runProgress/1200;
+        if(MainMenu.Instance.onEndless)
+        {
+            // Adds progress to the Race Bar
+            runProgress+=Time.deltaTime*PlayerRb.velocity.x;
+            runProgressE+=Time.deltaTime*PlayerRb.velocity.x;
+            RunFill.fillAmount=runProgressE/1200;
+        }
+        if(!MainMenu.Instance.onEndless)
+        {
+            // Adds progress to the Race Bar
+            runProgress+=Time.deltaTime*PlayerRb.velocity.x;
+            RunFill.fillAmount=runProgress/1200;
+        }
         //adds progress to score bar (via triggering the other script's fuction)
-        ScoreManager.instance.AddPoint(runProgress);
+        if(Moveable)
+        {
+            ScoreManager.instance.AddPoint(runProgress);
+        }
+        
 
         // temporary ground checking
         if (PlayerRb.velocity.y == 0)
@@ -80,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Jump when player can jump
-        if (Input.GetKey(KeyCode.Space) && CanJump)
+        if (Input.GetKey(KeyCode.Space) && CanJump && Moveable)
         {
             AudioManager.Instance.PlaySFX("Jump");
             PlayerRb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
@@ -97,12 +117,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        //delete this later
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            gameObject.layer += 4;
+        }
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            gameObject.layer -= 4;
+        }
+        //
+
+        if (Input.GetKeyDown(KeyCode.W) && Moveable)
         {
             LastInput = -1;
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && Moveable)
         {
             LastInput = 1;
         }
@@ -175,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     private IEnumerator Invicibility()
     {
         Invicible=true;
@@ -190,5 +222,6 @@ public class PlayerMovement : MonoBehaviour
             gameObject.layer -= 4;
         }
     }
+
 }
 
